@@ -16,6 +16,7 @@
  */
 package com.jdom.logging.log4j;
 
+import com.jdom.logging.api.LogLevel;
 import com.jdom.logging.api.Logger;
 
 /**
@@ -156,4 +157,22 @@ public class Log4jLogger implements Logger {
 		return this.logInstance.isInfoEnabled();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see com.jdom.logging.api.Logger#isEnabledFor(com.jdom.logging.api.LogLevel)
+	 */
+	@Override
+	public boolean isEnabledFor(LogLevel level) {
+		switch (level) {
+		case TRACE:
+			return isTraceEnabled();
+		case DEBUG:
+			return isDebugEnabled();
+		case INFO:
+			return isInfoEnabled();
+		default:
+			return true;
+		}
+	}
 }

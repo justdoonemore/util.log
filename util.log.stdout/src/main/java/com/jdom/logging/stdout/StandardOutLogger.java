@@ -16,6 +16,7 @@
  */
 package com.jdom.logging.stdout;
 
+import com.jdom.logging.api.LogLevel;
 import com.jdom.logging.api.Logger;
 
 /**
@@ -197,5 +198,15 @@ public class StandardOutLogger implements Logger {
 			Throwable throwable) {
 		log(string, message);
 		throwable.printStackTrace();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see com.jdom.logging.api.Logger#isEnabledFor(com.jdom.logging.api.LogLevel)
+	 */
+	@Override
+	public boolean isEnabledFor(LogLevel level) {
+		return true;
 	}
 }

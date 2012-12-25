@@ -169,6 +169,16 @@ public class NullLoggerFactory implements LoggerFactory {
 		public boolean isInfoEnabled() {
 			return false;
 		}
+
+		/**
+		 * {@inheritDoc}
+		 * 
+		 * @see com.jdom.logging.api.Logger#isEnabledFor(com.jdom.logging.api.LogLevel)
+		 */
+		@Override
+		public boolean isEnabledFor(LogLevel level) {
+			return false;
+		}
 	}
 
 	/**

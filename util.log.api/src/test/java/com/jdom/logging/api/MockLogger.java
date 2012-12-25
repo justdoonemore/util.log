@@ -172,4 +172,14 @@ public class MockLogger implements Logger {
 
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see com.jdom.logging.api.Logger#isEnabledFor(com.jdom.logging.api.LogLevel)
+	 */
+	@Override
+	public boolean isEnabledFor(LogLevel level) {
+		return false;
+	}
+
 }
