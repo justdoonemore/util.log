@@ -32,8 +32,7 @@ public class StandardOutLoggerFactory implements LoggerFactory {
 	 */
 	@Override
 	public Logger getLogger(Class<?> clazz) {
-		// TODO Auto-generated method stub
-		return null;
+		return new StandardOutLogger();
 	}
 
 }
