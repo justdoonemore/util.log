@@ -1,45 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.jdom</groupId>
+	<parent>
+		<groupId>com.jdom</groupId>
+		<artifactId>base.pom</artifactId>
+		<version>0.0.1</version>
+	</parent>
 	<artifactId>util.log</artifactId>
-	<version>0.0.3</version>
+	<version>0.0.4</version>
 	<packaging>pom</packaging>
-
-	<properties>
-		<commons.io.version>2.1</commons.io.version>
-		<log4j.version>1.2.16</log4j.version>
-		<junit.version>4.10</junit.version>
-		<maven.jar.plugin.version>2.3.2</maven.jar.plugin.version>
-		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
-		<jdk.compliance.version>1.6</jdk.compliance.version>
-	</properties>
-
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>Internal Releases</name>
-			<url>${releases.url}</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Internal Snapshots</name>
-			<url>${snapshots.url}</url>
-		</snapshotRepository>
-	</distributionManagement>
-
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin.version}</version>
-				<configuration>
-					<source>${jdk.compliance.version}</source>
-					<target>${jdk.compliance.version}</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
 	<modules>
 		<module>util.log.log4j</module>
@@ -47,24 +16,4 @@
 		<module>util.log.stdout</module>
 	</modules>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>commons-io</groupId>
-				<artifactId>commons-io</artifactId>
-				<version>${commons.io.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>${log4j.version}</version>
-			</dependency>
-			<dependency>
-				<artifactId>junit</artifactId>
-				<groupId>junit</groupId>
-				<version>${junit.version}</version>
-				<scope>test</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 </project>

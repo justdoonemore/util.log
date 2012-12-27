@@ -4,19 +4,15 @@
 	<parent>
 		<groupId>com.jdom</groupId>
 		<artifactId>util.log</artifactId>
-		<version>0.0.3</version>
+		<version>0.0.4</version>
 	</parent>
 	<artifactId>util.log.log4j</artifactId>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>util.log.api</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
@@ -25,6 +21,11 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

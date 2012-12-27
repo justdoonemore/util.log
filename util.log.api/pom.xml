@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.jdom</groupId>
 		<artifactId>util.log</artifactId>
-		<version>0.0.3</version>
+		<version>0.0.4</version>
 	</parent>
 	<artifactId>util.log.api</artifactId>
 
