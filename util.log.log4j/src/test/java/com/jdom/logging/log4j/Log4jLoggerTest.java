@@ -35,7 +35,7 @@ import com.jdom.logging.api.Logger;
  */
 public class Log4jLoggerTest {
 
-	private static final File logFile = new File("target", "test.log");
+	private static final File logFile = new File("build", "test.log");
 
 	private static final String LOGGED_MESSAGE = "logged message";
 

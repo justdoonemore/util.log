@@ -1,0 +1,79 @@
+subprojects {
+
+   configurations() {
+      sharedTest
+
+      testCompile {
+         extendsFrom sharedTest
+      }
+   }
+	
+   apply plugin: 'java'
+   apply plugin: 'maven'
+   apply plugin: 'eclipse'
+
+   version="0.0.4"
+   group="com.jdom"
+
+   repositories {
+       maven {
+           credentials {
+              username nexusUsername
+              password nexusPassword
+           }
+           url nexusUrl
+       }
+   }
+
+   uploadArchives {
+      repositories {
+         mavenDeployer {
+            repository(url: releasesUrl) {
+               authentication(userName: nexusUsername, password: nexusPassword)
+            }
+         }
+      }
+   }
+
+   dependencies {
+      sharedTest "junit:junit:4.11"
+   }
+}
+
+project(':util.log.stdout') {
+    dependencies {
+        compile project(':util.log.api')
+    }
+}
+
+project(':util.log.log4j') {
+    dependencies {
+        compile project(':util.log.api') 
+        compile "log4j:log4j:1.2.16"
+        
+        testCompile "commons-io:commons-io:2.1"
+    }
+}
+
+project(':util.log.android') {
+    configurations {
+       provided
+    }
+    
+    sourceSets {
+       main.compileClasspath += configurations.provided
+       test.compileClasspath += configurations.provided
+       test.runtimeClasspath += configurations.provided
+    }
+    
+
+    dependencies {
+        provided "com.google.android:android:2.2.1"
+        
+        compile project(':util.log.api')
+
+        testCompile "commons-io:commons-io:2.1"
+    }
+    
+    eclipse.classpath.plusConfigurations += configurations.provided
+}
